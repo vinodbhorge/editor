@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { EditorCursorImplementationService } from './editor-cursor-implementation.service';
 
 @NgModule({
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     QuestionsetEditorLibraryModule,
@@ -15,6 +18,7 @@ import { EditorCursorImplementationService } from './editor-cursor-implementatio
   ],
   providers: [
     { provide: EditorCursor, useExisting: EditorCursorImplementationService }
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
