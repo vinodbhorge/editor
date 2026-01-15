@@ -4,7 +4,8 @@ import { ConfigService } from '../../services/config/config.service';
 @Component({
   selector: 'lib-collection-icon',
   templateUrl: './collection-icon.component.html',
-  styleUrls: ['./collection-icon.component.scss']
+  styleUrls: ['./collection-icon.component.scss'],
+  standalone: false
 })
 export class CollectionIconComponent {
   @Input() appIcon;

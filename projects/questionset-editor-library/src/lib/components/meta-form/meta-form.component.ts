@@ -13,6 +13,7 @@ import * as moment from 'moment';
 let framworkServiceTemp;
 
 @Component({
+  standalone: false,
   selector: 'lib-meta-form',
   templateUrl: './meta-form.component.html',
   styleUrls: ['./meta-form.component.scss'],
@@ -23,7 +24,7 @@ export class MetaFormComponent implements OnChanges, OnDestroy {
   @Input() unitFormConfig: any;
   @Input() nodeMetadata: any;
   @Output() toolbarEmitter = new EventEmitter<any>();
-  private onComponentDestroy$ = new Subject<any>();
+  private onComponentDestroy$ = new Subject<void>();
   public frameworkDetails: any = {};
   public formFieldProperties: any;
   public showAppIcon = false;

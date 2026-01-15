@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "declarationMap": true,
-    "module": "es2015",
+    "module": "ES2022",
     "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,
@@ -15,16 +15,16 @@
     "types": [],
     "lib": [
       "dom",
-      "es2018"
-    ]
+      "ES2022"
+    ],
+    "strict": false,
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
     "compilationMode": "partial",
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "enableResourceInlining": true
+    "strictMetadataEmit": false,
+    "enableResourceInlining": true,
+    "generateStandaloneInJit": false
   },
   "exclude": [
     "src/test.ts",

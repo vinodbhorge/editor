@@ -4,7 +4,8 @@ import { ConfigService } from "../../services/config/config.service";
 @Component({
   selector: "lib-translations",
   templateUrl: "./translations.component.html",
-  styleUrls: ["./translations.component.scss"],
+  styleUrls: ['./translations.component.scss'],
+  standalone: false
 })
 export class TranslationsComponent {
   public editorState: any = {};

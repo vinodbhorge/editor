@@ -3,6 +3,7 @@ import { ConfigService } from '../../services/config/config.service';
 @Component({
   selector: 'lib-answer',
   templateUrl: './answer.component.html',
+  standalone: false,
 })
 export class AnswerComponent implements OnInit {
   @Input() editorState;

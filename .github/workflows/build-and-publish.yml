@@ -16,11 +16,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.19.1'
+          node-version: '22.21.1'
           cache: 'npm'
 
       - name: Install Angular CLI
-        run: npm install -g @angular/cli@16 --no-progress
+        run: npm install -g @angular/cli@19.2.18 --no-progress
 
       - name: Install dependencies
         run: npm install --no-progress

@@ -22,6 +22,7 @@ const evidenceSizeLimit='20480';
 const DEFAULT_SCORE = 1;
 
 @Component({
+  standalone: false,
   selector: 'lib-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
@@ -34,7 +35,7 @@ export class QuestionComponent implements OnInit, AfterViewInit, OnDestroy {
   public initialLeafFormConfig: any;
   public childFormData: any;
   @Output() questionEmitter = new EventEmitter<any>();
-  private onComponentDestroy$ = new Subject<any>();
+  private onComponentDestroy$ = new Subject<void>();
   toolbarConfig: any = {};
   public showAssetPicker = false;
   public terms = false;

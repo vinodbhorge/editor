@@ -5,7 +5,8 @@ import { ConfigService } from '../../services/config/config.service';
 @Component({
   selector: 'lib-template',
   templateUrl: './template.component.html',
-  styleUrls: ['./template.component.scss']
+  styleUrls: ['./template.component.scss'],
+  standalone: false
 })
 export class TemplateComponent implements OnDestroy {
 

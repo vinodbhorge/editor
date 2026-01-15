@@ -4,7 +4,8 @@ import { EditorService } from '../../services/editor/editor.service';
 @Component({
   selector: 'lib-progress-status',
   templateUrl: './progress-status.component.html',
-  styleUrls: ['./progress-status.component.scss']
+  styleUrls: ['./progress-status.component.scss'],
+  standalone: false
 })
 export class ProgressStatusComponent implements OnInit {
   toolbarConfig: any = {};

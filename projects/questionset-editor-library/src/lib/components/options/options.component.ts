@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
   selector: 'lib-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss'],
+  standalone: false,
 })
 export class OptionsComponent implements OnInit, OnChanges {
   @Input() editorState: any;

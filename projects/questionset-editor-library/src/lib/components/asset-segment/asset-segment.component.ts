@@ -3,7 +3,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'lib-asset-segment',
   templateUrl: './asset-segment.component.html',
-  styleUrls: ['./asset-segment.component.scss']
+  styleUrls: ['./asset-segment.component.scss'],
+  standalone: false
 })
 export class AssetSegmentComponent {
   @Input() assets: any;

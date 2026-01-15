@@ -11,7 +11,8 @@ import { filter } from 'rxjs/operators';
   selector: 'lib-qumlplayer-page',
   templateUrl: './qumlplayer-page.component.html',
   styleUrls: ['./qumlplayer-page.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class QumlplayerPageComponent implements OnChanges {
   qumlPlayerConfig: any;

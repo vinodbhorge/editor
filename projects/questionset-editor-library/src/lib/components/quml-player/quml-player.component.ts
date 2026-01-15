@@ -8,6 +8,7 @@ import { EditorService } from '../../services/editor/editor.service';
   templateUrl: './quml-player.component.html',
   styleUrls: ['./quml-player.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: false,
 })
 export class QumlPlayerComponent implements OnInit, AfterViewInit, OnChanges, AfterViewChecked {
   private static readonly PLAYER_INITIALIZATION_TIMEOUT = 200;

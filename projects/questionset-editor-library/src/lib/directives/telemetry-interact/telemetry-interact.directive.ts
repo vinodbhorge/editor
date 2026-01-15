@@ -17,7 +17,8 @@ export interface IInteractEventEdata {
  * TelemetryInteract Directive
  */
 @Directive({
-  selector: '[libTelemetryInteract]'
+  selector: '[libTelemetryInteract]',
+  standalone: false
 })
 export class TelemetryInteractDirective {
 

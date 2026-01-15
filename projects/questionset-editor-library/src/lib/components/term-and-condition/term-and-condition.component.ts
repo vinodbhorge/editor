@@ -5,7 +5,8 @@ import {EditorService} from '../../services/editor/editor.service';
 
 @Component({
     selector: 'lib-term-and-condition',
-    templateUrl: './term-and-condition.component.html'
+    templateUrl: './term-and-condition.component.html',
+    standalone: false
 })
 export class TermAndConditionComponent {
     @Input() showEditingConsent = true;

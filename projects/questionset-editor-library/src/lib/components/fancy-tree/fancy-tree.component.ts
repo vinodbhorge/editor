@@ -2,7 +2,6 @@ import {
   Component, AfterViewInit, Input, ViewChild, ElementRef, Output, EventEmitter,
   OnDestroy, OnInit, ViewEncapsulation, ChangeDetectorRef
 } from '@angular/core';
-import 'jquery.fancytree';
 import * as _ from 'lodash-es';
 import { TreeService } from '../../services/tree/tree.service';
 import { EditorService } from '../../services/editor/editor.service';
@@ -14,9 +13,11 @@ import { ConfigService } from '../../services/config/config.service';
 
 import { Subject } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
-declare let $: any;
+
+declare var $: any;
 
 @Component({
+  standalone: false,
   selector: 'lib-fancy-tree',
   templateUrl: './fancy-tree.component.html',
   styleUrls: ['./fancy-tree.component.scss'],
@@ -630,7 +631,7 @@ export class FancyTreeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.onComponentDestroy$.next();
+    this.onComponentDestroy$.next(undefined);
     this.onComponentDestroy$.complete();
   }
 }

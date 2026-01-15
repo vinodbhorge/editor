@@ -5,7 +5,8 @@ import { TreeService } from '../../services/tree/tree.service';
 
 @Component({
   selector: 'lib-relational-metadata',
-  templateUrl: './relational-metadata.component.html'
+  templateUrl: './relational-metadata.component.html',
+  standalone: false
 })
 export class RelationalMetadataComponent implements OnChanges {
 

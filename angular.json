@@ -15,12 +15,12 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/sunbird-questionset-editor",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "browser": "src/main.ts",
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/assets",
@@ -46,7 +46,6 @@
               "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
-              "node_modules/@project-sunbird/sunbird-quml-player-web-component/sunbird-quml-player.js",
               "src/assets/libs/iziToast/iziToast.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/jquery.fancytree/dist/jquery.fancytree-all-deps.min.js",
@@ -56,14 +55,10 @@
               "src/assets/lib/modal.min.js",
               "src/assets/lib/semantic-ui-tree-picker.js",
               "node_modules/@project-sunbird/telemetry-sdk/index.js",
-              "node_modules/@project-sunbird/client-services/index.js"
-            ],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+              "src/assets/libs/ld-stubs.js",
+              "node_modules/@project-sunbird/client-services/index.js",
+              "node_modules/@project-sunbird/sunbird-quml-player-web-component/sunbird-quml-player.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -76,10 +71,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -98,19 +89,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sunbird-questionset-editor:build",
+            "buildTarget": "sunbird-questionset-editor:build",
             "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sunbird-questionset-editor:build:production"
+              "buildTarget": "sunbird-questionset-editor:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sunbird-questionset-editor:build"
+            "buildTarget": "sunbird-questionset-editor:build"
           }
         },
         "test": {
@@ -239,14 +230,16 @@
               "node_modules/@project-sunbird/sunbird-quml-player-web-component/styles.css"
             ],
             "scripts": [
+              "node_modules/@project-sunbird/sunbird-file-upload-library/sunbird-file-upload-library.js",
+              "node_modules/reflect-metadata/Reflect.js",
               "src/assets/libs/iziToast/iziToast.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/jquery.fancytree/dist/jquery.fancytree-all-deps.min.js",
-              "node_modules/@project-sunbird/sunbird-file-upload-library/sunbird-file-upload-library.js",
               "src/assets/lib/dimmer.min.js",
               "src/assets/lib/transition.min.js",
               "src/assets/lib/modal.min.js",
               "src/assets/lib/semantic-ui-tree-picker.js",
+              "src/assets/libs/ld-stubs.js",
               "node_modules/@project-sunbird/telemetry-sdk/index.js",
               "node_modules/@project-sunbird/client-services/index.js",
               "node_modules/@project-sunbird/sunbird-quml-player-web-component/sunbird-quml-player.js"
@@ -269,12 +262,8 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -283,10 +272,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "questionset-editor-library-wc:build:production"
+              "buildTarget": "questionset-editor-library-wc:build:production"
             },
             "development": {
-              "browserTarget": "questionset-editor-library-wc:build:development"
+              "buildTarget": "questionset-editor-library-wc:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -294,7 +283,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "questionset-editor-library-wc:build"
+            "buildTarget": "questionset-editor-library-wc:build"
           }
         },
         "test": {
