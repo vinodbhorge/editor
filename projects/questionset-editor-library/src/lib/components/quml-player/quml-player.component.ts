@@ -181,7 +181,8 @@ export class QumlPlayerComponent implements OnInit, AfterViewInit, OnChanges, Af
       }, QumlPlayerComponent.PLAYER_INITIALIZATION_TIMEOUT);
     };
 
-    (window as any).questionListUrl = `/api/${_.get(this.configService, 'urlConFig.URLS.Question.LIST')}`;
+    const apiSlug = _.get(this.editorService, 'editorConfig.config.apiSlug', '/api');
+    (window as any).questionListUrl = `${apiSlug}/${_.get(this.configService, 'urlConFig.URLS.Question.LIST')}`;
     
     waitForCustomElement('sunbird-quml-player').then(() => {
       if (checkCustomElement('sunbird-quml-player') && this.inQuiryQuMLPlayer?.nativeElement) {
