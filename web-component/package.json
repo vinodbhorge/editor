@@ -23,6 +23,6 @@
     "peerDependencies": {
         "jquery": ">=3.7.1",
         "jquery.fancytree": ">=2.38.3",
-        "reflect-metadata": "^0.1.13"
+        "reflect-metadata": "^0.2.2"
     }
 }
