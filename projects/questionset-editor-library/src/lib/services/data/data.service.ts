@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ServerResponse } from '../../interfaces/serverResponse';
 import { RequestParam } from '../../interfaces/requestParam';
 import { HttpOptions } from '../../interfaces/httpOptions';
+import { ApiConfigService } from '../../services/config/api-config.service';
 
 /**
  * Service to provide base CRUD methods to make api request.
@@ -40,12 +41,14 @@ export class DataService {
    * angular HttpClient
    */
   http: HttpClient;
+  private apiConfigService: ApiConfigService;
   /**
    * Constructor
    * @param HttpClient http HttpClient reference
    */
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, apiConfigService: ApiConfigService) {
     this.http = http;
+    this.apiConfigService = apiConfigService;
   }
 
   /**
@@ -60,7 +63,7 @@ export class DataService {
       observe: 'response'
     };
 
-    return this.http.get(this.baseUrl + requestParam.url, httpOptions).pipe(
+    return this.http.get(this.getBaseUrl() + requestParam.url, httpOptions).pipe(
       mergeMap(({body, headers}: any) => {
         // replace ts time with header date , this value is used in telemetry
         body.ts =  this.getDateDiff((headers.get('Date')));
@@ -82,7 +85,7 @@ export class DataService {
       params: requestParam.param
     };
 
-    return this.http.get(this.baseUrl + requestParam.url, httpOptions).pipe(
+    return this.http.get(this.getBaseUrl() + requestParam.url, httpOptions).pipe(
       mergeMap((data: ServerResponse) => {
         if (data.responseCode !== 'OK') {
           return observableThrowError(data);
@@ -105,7 +108,7 @@ export class DataService {
       observe: 'response'
     };
 
-    return this.http.post(this.baseUrl + requestParam.url, requestParam.data, httpOptions).pipe(
+    return this.http.post(this.getBaseUrl() + requestParam.url, requestParam.data, httpOptions).pipe(
       mergeMap(({body, headers}: any) => {
         // replace ts time with header date , this value is used in telemetry
         body.ts =  this.getDateDiff((headers.get('Date')));
@@ -126,7 +129,7 @@ export class DataService {
       params: requestParam.param
     };
 
-    return this.http.post(this.baseUrl + requestParam.url, requestParam.data, httpOptions).pipe(
+    return this.http.post(this.getBaseUrl() + requestParam.url, requestParam.data, httpOptions).pipe(
       mergeMap((data: ServerResponse) => {
         if (data.responseCode !== 'OK') {
           return observableThrowError(data);
@@ -147,7 +150,7 @@ export class DataService {
       params: requestParam.param
     };
 
-    return this.http.patch(this.baseUrl + requestParam.url, requestParam.data, httpOptions).pipe(
+    return this.http.patch(this.getBaseUrl() + requestParam.url, requestParam.data, httpOptions).pipe(
       mergeMap((data: ServerResponse) => {
         if (data.responseCode !== 'OK') {
           return observableThrowError(data);
@@ -166,7 +169,7 @@ export class DataService {
       params: requestParam.param,
       body: requestParam.data
     };
-    return this.http.delete(this.baseUrl + requestParam.url, httpOptions).pipe(
+    return this.http.delete(this.getBaseUrl() + requestParam.url, httpOptions).pipe(
       mergeMap((data: ServerResponse) => {
         if (data.responseCode !== 'OK') {
           return observableThrowError(data);
@@ -212,6 +215,14 @@ export class DataService {
     } else {
       return { ...default_headers };
     }
+  }
+
+  /**
+   * Resolve API base URL from runtime config (quml player/editor config)
+   * Falls back to '/api/'. Ensures trailing slash.
+   */
+  protected getBaseUrl(): string {
+    return this.apiConfigService.getApiSlug();
   }
 
   private getDateDiff(serverdate): number {
