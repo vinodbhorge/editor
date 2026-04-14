@@ -6,6 +6,7 @@ import * as _ from 'lodash-es';
   selector: 'lib-publish-checklist',
   templateUrl: './publish-checklist.component.html',
   styleUrls: ['./publish-checklist.component.scss'],
+  standalone: false,
   encapsulation: ViewEncapsulation.None,
 })
 export class PublishChecklistComponent implements OnInit {

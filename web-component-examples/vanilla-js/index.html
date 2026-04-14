@@ -8,33 +8,115 @@
   <title>Questionset Editor web component vanilla js demo example</title>
 
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-    crossorigin="anonymous"></script>
+  <!-- Critical: Load jQuery and FancyTree BEFORE the web component bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.38.3/jquery.fancytree-all-deps.min.js" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reflect-metadata/0.1.13/Reflect.min.js"
     integrity="sha512-jvbPH2TH5BSZumEfOJZn9IV+5bSwwN+qG4dvthYe3KCGC3/9HmxZ4phADbt9Pfcp+XSyyfc2vGZ/RMsSUZ9tbQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <div id="inQuiryEditor">
   </div>
-  <script type="text/javascript" src="sunbird-questionset-editor.js"></script>
-  <script src="questionsetEditorConfig.json"></script>
   <script type="text/javascript">
-    fetch('questionsetEditorConfig.json')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      const questionSetEditorConfig = data;
-      const myElement = document.createElement('lib-questionset-editor');
-      myElement.setAttribute('editor-config', JSON.stringify(questionSetEditorConfig));
-      const inQuiryEditor = document.getElementById("inQuiryEditor");
-      inQuiryEditor.appendChild(myElement);
-    })
-    .catch(error => {
-      console.error('Error fetching JSON:', error);
-    });
+    // CRITICAL: Preserve CDN jQuery with Fancytree before bundle loads
+    let savedJQuery = null;
+    let savedFancytree = null;
+    
+    // Wait for CDN scripts to load
+    function waitForCDNScripts() {
+      return new Promise((resolve) => {
+        const checkInterval = setInterval(() => {
+          if (typeof window.$ !== 'undefined' && 
+              typeof window.$.fn !== 'undefined' && 
+              typeof window.$.fn.fancytree !== 'undefined' &&
+              typeof window.Reflect !== 'undefined') {
+            clearInterval(checkInterval);
+            console.log('✓ CDN scripts loaded: jQuery, Fancytree, Reflect');
+            
+            // Save the Fancytree-enabled jQuery
+            savedJQuery = window.$;
+            savedFancytree = window.$.fn.fancytree;
+            console.log('✓ Saved Fancytree-enabled jQuery');
+            resolve();
+          }
+        }, 50);
+      });
+    }
+
+    // Restore Fancytree after bundle loads
+    function restoreFancytree() {
+      if (savedJQuery && savedFancytree) {
+        // Restore fancytree to whatever jQuery is now available
+        if (typeof window.$ !== 'undefined' && typeof window.$.fn !== 'undefined') {
+          window.$.fn.fancytree = savedFancytree;
+          console.log('✓ Restored Fancytree to current jQuery');
+        } else {
+          // Restore the entire saved jQuery if current one is missing
+          window.$ = savedJQuery;
+          window.jQuery = savedJQuery;
+          console.log('✓ Restored entire jQuery with Fancytree');
+        }
+      }
+    }
+
+    // Start after DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startLoading);
+    } else {
+      startLoading();
+    }
+
+    function startLoading() {
+      console.log('DOM ready, waiting for CDN scripts...');
+      
+      // Wait for CDN scripts to load and save Fancytree
+      waitForCDNScripts().then(() => {
+        console.log('Loading web component bundle...');
+        
+        // Load the bundle
+        const script = document.createElement('script');
+        script.src = 'sunbird-questionset-editor.js';
+        script.onload = () => {
+          console.log('✓ Web component bundle loaded');
+          
+          // Restore Fancytree that might have been overwritten
+          restoreFancytree();
+          
+          // Verify
+          if (typeof window.$.fn.fancytree !== 'undefined') {
+            console.log('✓ Fancytree is available, initializing editor');
+            initEditor();
+          } else {
+            console.error('✗ Fancytree still not available after restore!');
+          }
+        };
+        script.onerror = (error) => {
+          console.error('Failed to load web component bundle:', error);
+        };
+        document.body.appendChild(script);
+      });
+    }
+
+    // Initialize editor with config from JSON file
+    function initEditor() {
+      fetch('questionsetEditorConfig.json')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          const questionSetEditorConfig = data;
+          const myElement = document.createElement('lib-questionset-editor');
+          myElement.setAttribute('editor-config', JSON.stringify(questionSetEditorConfig));
+          const inQuiryEditor = document.getElementById("inQuiryEditor");
+          inQuiryEditor.appendChild(myElement);
+        })
+        .catch(error => {
+          console.error('Error fetching JSON:', error);
+        });
+    }
   </script>
 </body>
 

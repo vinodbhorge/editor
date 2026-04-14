@@ -5,6 +5,7 @@ import { TreeService } from '../tree/tree.service';
 import { PublicDataService } from '../public-data/public-data.service';
 import { IEditorConfig } from '../../interfaces/editor';
 import { ConfigService } from '../config/config.service';
+import { ApiConfigService } from '../config/api-config.service';
 import { ToasterService} from '../../services/toaster/toaster.service';
 import { EditorTelemetryService } from '../../services/telemetry/telemetry.service';
 import { DataService } from '../data/data.service';
@@ -43,7 +44,8 @@ export class EditorService {
   private _isReviewerQualityCheckEnabled: boolean;
   constructor(public treeService: TreeService, private toasterService: ToasterService,
               public configService: ConfigService, private telemetryService: EditorTelemetryService,
-              private publicDataService: PublicDataService, private dataService: DataService, public httpClient: HttpClient) {
+              private publicDataService: PublicDataService, private dataService: DataService, public httpClient: HttpClient,
+              private apiConfigService: ApiConfigService) {
               }
 
   public initialize(config: IEditorConfig) {
@@ -55,6 +57,12 @@ export class EditorService {
     this.setIsReviewerEditEnable(_.get(this._editorConfig, 'context.enableReviewEdit', false));
     this.setQualityFormConfig(_.get(this._editorConfig, 'config.qualityFormConfig', null));
     this.setIsReviewerQualityCheckEnabled(_.get(this._editorConfig, 'config.isReviewerQualityCheckEnabled', false));
+
+    // Initialize ApiConfigService with runtime apiSlug for consistent base URL resolution
+    try {
+      const apiSlug = _.get(this._editorConfig, 'config.apiSlug', '/api');
+      this.apiConfigService.setApiSlug(apiSlug);
+    } catch (e) { }
   }
 
   set selectedChildren(value: SelectedChildren) {

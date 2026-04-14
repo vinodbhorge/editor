@@ -6,7 +6,8 @@ import * as _ from 'lodash-es';
 @Component({
   selector: 'lib-assign-page-number',
   templateUrl: './assign-page-number.component.html',
-  styleUrls: ['./assign-page-number.component.scss']
+  styleUrls: ['./assign-page-number.component.scss'],
+  standalone: false
 })
 export class AssignPageNumberComponent implements OnInit {
 

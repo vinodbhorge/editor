@@ -10,7 +10,8 @@ import { ToasterService } from '../../services/toaster/toaster.service';
 @Component({
   selector: 'lib-assets-browser',
   templateUrl: './assets-browser.component.html',
-  styleUrls: ['./assets-browser.component.scss']
+  styleUrls: ['./assets-browser.component.scss'],
+  standalone: false
 })
 export class AssetsBrowserComponent implements OnInit, OnChanges, OnDestroy {
   @ViewChild('editor') public editorRef: ElementRef;

@@ -1,8 +1,8 @@
 {
     "name": "@project-sunbird/sunbird-questionset-editor-web-component",
-    "version": "4.0.3",
+    "version": "6.0.2",
     "description": "The web component package for the sunbird questionset editor",
-    "main": "sunbird-questionset-editor.js",
+    "main": "assets/quml-editor/sunbird-questionset-editor.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -19,5 +19,10 @@
         "url": "https://github.com/Sunbird-inQuiry/editor.git"
     },
     "author": "Sunbird",
-    "license": "MIT"
+    "license": "MIT",
+    "peerDependencies": {
+        "jquery": ">=3.7.1",
+        "jquery.fancytree": ">=2.38.3",
+        "reflect-metadata": "^0.2.2"
+    }
 }

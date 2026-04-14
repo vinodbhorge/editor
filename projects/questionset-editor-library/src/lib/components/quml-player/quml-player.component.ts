@@ -8,6 +8,7 @@ import { EditorService } from '../../services/editor/editor.service';
   templateUrl: './quml-player.component.html',
   styleUrls: ['./quml-player.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: false,
 })
 export class QumlPlayerComponent implements OnInit, AfterViewInit, OnChanges, AfterViewChecked {
   private static readonly PLAYER_INITIALIZATION_TIMEOUT = 200;
@@ -180,7 +181,8 @@ export class QumlPlayerComponent implements OnInit, AfterViewInit, OnChanges, Af
       }, QumlPlayerComponent.PLAYER_INITIALIZATION_TIMEOUT);
     };
 
-    (window as any).questionListUrl = `/api/${_.get(this.configService, 'urlConFig.URLS.Question.LIST')}`;
+    const apiSlug = _.get(this.editorService, 'editorConfig.config.apiSlug', '/api');
+    (window as any).questionListUrl = `${apiSlug}/${_.get(this.configService, 'urlConFig.URLS.Question.LIST')}`;
     
     waitForCustomElement('sunbird-quml-player').then(() => {
       if (checkCustomElement('sunbird-quml-player') && this.inQuiryQuMLPlayer?.nativeElement) {

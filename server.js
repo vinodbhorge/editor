@@ -17,7 +17,7 @@ app.set('port', 3000);
 app.use(express.json())
 app.get("/latex/convert", latexService.convert)
 app.post("/latex/convert", bodyParser.json({ limit: '1mb' }), latexService.convert);
-app.use(express.static(__dirname + '/web-component-examples/vanilla-js'));
+app.use(express.static(__dirname + '/'));
 
 const decoratePublicRequestHeaders = function () {
     return function (proxyReqOpts, srcReq) {
@@ -117,4 +117,7 @@ app.use(['/assets/public/*'], proxy(BASE_URL, {
         return require('url').parse(`https://${BASE_URL}` + req.originalUrl).path
     }
 }));
-http.createServer(app).listen(app.get('port'), 3000);
+http.createServer(app).listen(app.get('port'), () => {
+    console.log(`Server is running on http://localhost:${app.get('port')}`);
+    console.log(`Web component available at: http://localhost:${app.get('port')}/web-component/assets/quml-editor/`);
+});

@@ -7,13 +7,13 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import 'jquery.fancytree';
 import * as _ from 'lodash-es';
 import { EditorService } from '../../services/editor/editor.service';
 
-declare const $: any;
+declare var $: any;
 
 @Component({
+  standalone: false,
   selector: 'lib-plain-tree',
   templateUrl: './plain-tree.component.html'
 })

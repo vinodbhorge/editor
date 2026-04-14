@@ -21,6 +21,7 @@ let evidenceMimeType;
 let ecm;
 
 @Component({
+  standalone: false,
   selector: 'lib-questionset-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss'],

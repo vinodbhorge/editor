@@ -11,7 +11,8 @@ import { config } from '../assets-browser/assets-browser.data';
 @Component({
   selector: 'lib-ckeditor-tool',
   templateUrl: './ckeditor-tool.component.html',
-  styleUrls: ['./ckeditor-tool.component.scss']
+  styleUrls: ['./ckeditor-tool.component.scss'],
+  standalone: false
 })
 export class CkeditorToolComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('editor') public editorRef: ElementRef;

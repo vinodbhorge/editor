@@ -1,0 +1,31 @@
+name: Publish QuestionSet Editor Package
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.21.1'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm i --legacy-peer-deps
+
+      - name: Build and publish package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm run build-lib:prod
+          npm pack ./dist/questionset-editor-library
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          npm publish project-sunbird-sunbird-questionset-editor-* --access=public

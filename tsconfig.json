@@ -6,8 +6,8 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2020",
-    "moduleResolution": "node",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
@@ -16,17 +16,23 @@
       "node_modules/@types"
     ],
     "lib": [
-      "es2018",
+      "ES2022",
       "dom"
     ],
     "paths": {
       "questionset-editor-library": [
-        "dist/questionset-editor-library"
+        "projects/questionset-editor-library/src/public-api.ts"
       ],
       "questionset-editor-library/*": [
-        "dist/questionset-editor-library/*"
+        "projects/questionset-editor-library/src/*"
       ]
     },
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "strict": false,
+    "skipLibCheck": true
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": false,
+    "strictInjectionParameters": false
   }
 }

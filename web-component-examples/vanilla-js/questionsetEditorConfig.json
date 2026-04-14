@@ -1,139 +1,253 @@
 {
     "context": {
-        "programId": "",
-        "contributionOrgId": "",
-        "user": {
-            "id": "5a587cc1-e018-4859-a0a8-e842650b9d64",
-            "fullName": "Test User",
-            "firstName": "Test",
-            "lastName": "User",
-            "orgIds": [
-                "0137541424673095687"
-            ]
-        },
-        "identifier": "do_114009589774032896114",
-        "authToken": " ",
-        "sid": "iYO2K6dOSdA0rwq7NeT1TDzS-dbqduvV",
-        "did": "7e85b4967aebd6704ba1f604f20056b6",
-        "uid": "bf020396-0d7b-436f-ae9f-869c6780fc45",
-        "channel": "0137541424673095687",
+        "identifier": "do_214501351801487360113",
+        "channel": "0144880972895272960",
+        "authToken": "",
+        "sid": "ZwkTIvaOkvd1GMWiCvr_LWd14HMkqdW5",
+        "did": "256e084b7bf1ea36a559e7a974cc2ac4",
+        "uid": "a5a1d92d-45a3-45e5-a25e-8c95e109412e",
+        "additionalCategories": [
+            "Textbook",
+            "Lesson Plan",
+            "Curiosity Question Set",
+            "Experiential Resource",
+            "Explanation Video",
+            "Focus Spot",
+            "Learning Outcome Definition",
+            "Marking Scheme Rubric",
+            "Pedagogy Flow",
+            "Previous Board Exam Papers",
+            "TV Lesson"
+        ],
+        "host": "https://dev.sunbirded.org",
         "pdata": {
-            "id": "dev.dock.portal",
-            "ver": "2.8.0",
-            "pid": "creation-portal"
+            "id": "staging.sunbird.portal",
+            "ver": "7.0.0",
+            "pid": "sunbird-portal"
+        },
+        "actor": {
+            "id": "a5a1d92d-45a3-45e5-a25e-8c95e109412e",
+            "type": "User"
         },
         "contextRollup": {
-            "l1": "01307938306521497658"
+            "l1": "0144880972895272960"
         },
         "tags": [
-            "01307938306521497658"
+            "0144880972895272960"
         ],
-        "cdata": [
-            {
-                "id": "01307938306521497658",
-                "type": "sourcing_organization"
-            },
-            {
-                "type": "project",
-                "id": "ec5cc850-3f71-11eb-aae1-fb99d9fb6737"
-            },
-            {
-                "type": "linked_collection",
-                "id": "do_113140468925825024117"
-            }
-        ],
-        "timeDiff": 5,
-        "objectRollup": {
-            "l1": "do_113140468925825024117",
-            "l2": "do_113140468926914560125"
-        },
-        "host": "https://dev.sunbirded.org",
+        "timeDiff": -0.78,
         "defaultLicense": "CC BY 4.0",
         "endpoint": "/data/v3/telemetry",
         "env": "questionset_editor",
-        "framework": "tn_k-12",
-        "cloudStorageUrls": [
-            "https://s3.ap-south-1.amazonaws.com/ekstep-public-qa/",
-            "https://ekstep-public-qa.s3-ap-south-1.amazonaws.com/",
-            "https://sunbirddev.blob.core.windows.net/sunbird-content-dev/",
-            "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging/",
-            "https://obj.stage.sunbirded.org/sunbird-content-staging/"
-        ],
-        "board": "CBSE",
-        "medium": [
-            "English"
-        ],
-        "gradeLevel": [
-            "Class 1"
-        ],
-        "subject": [
-            "Hindi"
-        ],
-        "additionalCategories": [
-            {
-                "value": "Classroom Teaching Video",
-                "label": "Classroom Teaching Video"
-            },
-            {
-                "value": "Concept Map",
-                "label": "Concept Map"
-            },
-            {
-                "value": "Curiosity Question Set",
-                "label": "Curiosity Question Set"
-            },
-            {
-                "value": "Textbook",
-                "label": "Textbook"
-            },
-            {
-                "value": "Experiential Resource",
-                "label": "Experiential Resource"
-            },
-            {
-                "value": "Explanation Video",
-                "label": "Explanation Video"
-            },
-            {
-                "value": "Focus Spot",
-                "label": "Focus Spot"
-            },
-            {
-                "value": "Learning Outcome Definition",
-                "label": "Learning Outcome Definition"
-            },
-            {
-                "value": "Marking Scheme Rubric",
-                "label": "Marking Scheme Rubric"
-            },
-            {
-                "value": "Pedagogy Flow",
-                "label": "Pedagogy Flow"
-            },
-            {
-                "value": "Lesson Plan",
-                "label": "Lesson Plan"
-            },
-            {
-                "value": "Previous Board Exam Papers",
-                "label": "Previous Board Exam Papers"
-            },
-            {
-                "value": "TV Lesson",
-                "label": "TV Lesson"
-            }
-        ],
-        "labels": {
-            "save_collection_btn_label": "Save as Draft"
+        "user": {
+            "id": "a5a1d92d-45a3-45e5-a25e-8c95e109412e",
+            "orgIds": [
+                "0144880972895272960"
+            ],
+            "organisations": {},
+            "fullName": "Content Creator",
+            "firstName": "Content Creator",
+            "lastName": "",
+            "isRootOrgAdmin": false
         },
-        "correctionComments": false,
-        "sourcingResourceStatus": true,
+        "channelData": {
+            "code": "0144880972895272960",
+            "description": "Default Organisation for Sunbird",
+            "suggested_frameworks": [
+                {
+                    "identifier": "NCF",
+                    "code": "NCF",
+                    "name": "CBSE",
+                    "objectType": "Framework"
+                },
+                {
+                    "identifier": "TPD",
+                    "code": "TPD",
+                    "name": "TPD",
+                    "objectType": "Framework"
+                }
+            ],
+            "createdOn": "2026-01-16T12:13:33.471+0000",
+            "objectType": "Channel",
+            "collectionPrimaryCategories": [
+                "Content Playlist",
+                "Course",
+                "Digital Textbook",
+                "Question paper"
+            ],
+            "primaryCategories": [
+                {
+                    "identifier": "obj-cat:asset_asset_all",
+                    "name": "Asset",
+                    "targetObjectType": "Asset"
+                },
+                {
+                    "identifier": "obj-cat:certificate-template_asset_all",
+                    "name": "Certificate Template",
+                    "targetObjectType": "Asset"
+                },
+                {
+                    "identifier": "obj-cat:content-playlist_collection_all",
+                    "name": "Content Playlist",
+                    "targetObjectType": "Collection"
+                },
+                {
+                    "identifier": "obj-cat:course_content_all",
+                    "name": "Course",
+                    "targetObjectType": "Content"
+                },
+                {
+                    "identifier": "obj-cat:course_collection_all",
+                    "name": "Course",
+                    "targetObjectType": "Collection"
+                },
+                {
+                    "identifier": "obj-cat:course-assessment_content_all",
+                    "name": "Course Assessment",
+                    "targetObjectType": "Content"
+                },
+                {
+                    "identifier": "obj-cat:course-unit_collection_all",
+                    "name": "Course Unit",
+                    "targetObjectType": "Collection"
+                },
+                {
+                    "identifier": "obj-cat:digital-textbook_collection_all",
+                    "name": "Digital Textbook",
+                    "targetObjectType": "Collection"
+                },
+                {
+                    "identifier": "obj-cat:etextbook_content_all",
+                    "name": "eTextbook",
+                    "targetObjectType": "Content"
+                },
+                {
+                    "identifier": "obj-cat:exam-question_content_all",
+                    "name": "Exam Question",
+                    "targetObjectType": "Content"
+                },
+                {
+                    "identifier": "obj-cat:explanation-content_content_all",
+                    "name": "Explanation Content",
+                    "targetObjectType": "Content"
+                },
+                {
+                    "identifier": "obj-cat:learning-resource_content_all",
+                    "name": "Learning Resource",
+                    "targetObjectType": "Content"
+                },
+                {
+                    "identifier": "obj-cat:lesson-plan-unit_collection_all",
+                    "name": "Lesson Plan Unit",
+                    "targetObjectType": "Collection"
+                },
+                {
+                    "identifier": "obj-cat:multiple-choice-question_question_all",
+                    "name": "Multiple Choice Question",
+                    "targetObjectType": "Question"
+                },
+                {
+                    "identifier": "obj-cat:practice-question-set_questionset_all",
+                    "name": "Practice Question Set",
+                    "targetObjectType": "QuestionSet"
+                },
+                {
+                    "identifier": "obj-cat:question-paper_collection_all",
+                    "name": "Question Paper",
+                    "targetObjectType": "Collection"
+                },
+                {
+                    "identifier": "obj-cat:subjective-question_question_all",
+                    "name": "Subjective Question",
+                    "targetObjectType": "Question"
+                },
+                {
+                    "identifier": "obj-cat:teacher-resource_content_all",
+                    "name": "Teacher Resource",
+                    "targetObjectType": "Content"
+                },
+                {
+                    "identifier": "obj-cat:textbook-unit_collection_all",
+                    "name": "Textbook Unit",
+                    "targetObjectType": "Collection"
+                }
+            ],
+            "additionalCategories": [
+                "Asset",
+                "Certificate Template",
+                "Content Playlist",
+                "Course",
+                "Course Assessment",
+                "Course Unit",
+                "Digital Textbook",
+                "eTextbook",
+                "Exam Question",
+                "Explanation Content",
+                "Learning Resource",
+                "Lesson Plan Unit",
+                "Multiple Choice Question",
+                "Practice Question Set",
+                "Question Paper",
+                "Subjective Question",
+                "Teacher Resource",
+                "Textbook",
+                "Textbook Unit"
+            ],
+            "lastUpdatedOn": "2026-01-28T06:25:47.057+0000",
+            "collectionAdditionalCategories": [
+                "Textbook",
+                "Lesson Plan"
+            ],
+            "contentAdditionalCategories": [
+                "Textbook",
+                "Lesson Plan",
+                "Curiosity Question Set",
+                "Experiential Resource",
+                "Explanation Video",
+                "Focus Spot",
+                "Learning Outcome Definition",
+                "Marking Scheme Rubric",
+                "Pedagogy Flow",
+                "Previous Board Exam Papers",
+                "TV Lesson"
+            ],
+            "identifier": "0144880972895272960",
+            "lastStatusChangedOn": "2026-01-16T12:13:33.471+0000",
+            "defaultLicense": "CC BY 4.0",
+            "assetAdditionalCategories": [],
+            "autoCreateBatch": "Enabled",
+            "languageCode": [],
+            "versionKey": "21449641203349094411",
+            "contentPrimaryCategories": [
+                "Course Assessment",
+                "eTextbook",
+                "Explanation Content",
+                "Learning Resource",
+                "Practice Question Set",
+                "Teacher Resource",
+                "Exam Question"
+            ],
+            "name": "sunbird",
+            "defaultCourseFramework": "TPD",
+            "assetPrimaryCategories": [
+                "Asset",
+                "CertAsset",
+                "Certificate Template"
+            ],
+            "node_id": 1,
+            "status": "Live",
+            "defaultFramework": "NCF"
+        },
+        "cloudStorageUrls": [
+            "https://eddevlda72f12a.blob.core.windows.net/ed-devl-public-4e0bb10266/"
+        ],
         "cloudStorage": {
             "provider": "azure",
             "presigned_headers": {
                 "x-ms-blob-type": "BlockBlob"
             }
-        }
+        },
+        "framework": "NCF"
     },
     "config": {
         "mode": "edit",
@@ -153,12 +267,20 @@
                 "description"
             ]
         },
-        "maxDepth": 4,
+        "maxDepth": 3,
         "objectType": "QuestionSet",
         "primaryCategory": "Practice Question Set",
         "isRoot": true,
         "iconClass": "fa fa-book",
         "hideSubmitForReviewBtn": false,
+        "questionSet": {
+            "maxQuestionsLimit": 500
+        },
+        "collection": {
+            "maxContentsLimit": 1200
+        },
+        "showAddCollaborator": false,
+        "publicStorageAccount": "https://eddevlda72f12a.blob.core.windows.net/",
         "children": {
             "Question": [
                 "Multiple Choice Question",
@@ -173,7 +295,12 @@
                 "mimeType": "application/vnd.sunbird.questionset",
                 "primaryCategory": "Practice Question Set",
                 "iconClass": "fa fa-folder-o",
-                "children": {},
+                "children": {
+                    "Question": [
+                        "Multiple Choice Question",
+                        "Subjective Question"
+                    ]
+                },
                 "addFromLibrary": true
             },
             "level2": {
@@ -198,6 +325,7 @@
                 "iconClass": "fa fa-folder-o",
                 "children": {
                     "Question": [
+                        "Multiple Choice Question",
                         "Subjective Question"
                     ]
                 }
