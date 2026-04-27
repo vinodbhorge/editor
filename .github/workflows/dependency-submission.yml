@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies (ci install for full lock resolution)
-        run: npm ci --legacy-peer-deps
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
 
       - name: Submit npm Dependencies
         uses: actions/dependency-review-action@v4.9.0
